@@ -4,11 +4,14 @@ var sys = require("util");
 var HttpFile = new (require("./module/HttpFile"))(charset);
 var Main = new (require("./module/Main"))(charset);
 var CApplication = require("./module/CApplication");
-var sql = new (require("./module/CMySqlRequest"))('fr37729.tw1.ru', 'fr37729_math', 'fr37729_math', 'xorxordiv');
+var sql = new (require("./module/CMySqlRequest"))('localhost', 'nodejs4', 'adminIwLGbfj', 'PFjGdnpjMi8m');
 var Ajax = new(require("./module/CAjax"))(sql);
 var API = new(require("./module/CAPI"))("ASSAQEE45451Q54QH566", sql);
 
 //---------------------------------Server---------------------------------------------------
+var ipaddr  = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+var port    = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+
 var server = http.createServer(function(req,res){
 	var app = new CApplication(req,res,function(req, res){
 		if(req.url == "/"){
@@ -33,10 +36,10 @@ var server = http.createServer(function(req,res){
 	});
 	app.run();
 });
-server.listen(8080);
+server.listen(port, ipaddr);
 
 //--------------------------------Server Control---------------------------------------------
-var consoleInput = process.openStdin()
+/*var consoleInput = process.openStdin()
 String.prototype.trim = function(){return this.replace(/^\s+|\s+$/g, '');};
 
 consoleInput.addListener("data",function(d){
@@ -59,5 +62,5 @@ consoleInput.addListener("data",function(d){
 		HttpFile.clearCache();
 		return;
 	}
-})
+})*/
 //------------------------------------------------------------------------------------
