@@ -4,7 +4,7 @@ var sys = require("util");
 var HttpFile = new (require("./module/HttpFile"))(charset);
 var Main = new (require("./module/Main"))(charset);
 var CApplication = require("./module/CApplication");
-var sql = new (require("./module/CMySqlRequest"))('localhost', 'nodejs4', 'adminIwLGbfj', 'PFjGdnpjMi8m');
+var sql = new (require("./module/CMySqlRequest"))('localhost', 'nodejs4', 'admin7MuFYrb', 'L3gdmdLWvsq1');
 var Ajax = new(require("./module/CAjax"))(sql);
 var API = new(require("./module/CAPI"))("ASSAQEE45451Q54QH566", sql);
 
